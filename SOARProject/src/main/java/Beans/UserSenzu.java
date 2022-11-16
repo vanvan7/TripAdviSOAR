@@ -22,7 +22,7 @@ import java.io.Serializable;
 @SessionScoped
 public class UserSenzu implements Serializable {
 
-  private String username = "";
+    private String username = "";
     private String firstName = "";
     private String lastName = "";
     private String email = "";
@@ -37,6 +37,12 @@ public class UserSenzu implements Serializable {
         } catch (AlreadyExistsException | DoesNotExistException ex) {
             System.out.println(ex.getMessage());
         }
+        // empty values
+        this.email = "";
+        this.username = "";
+        this.firstName = "";
+        this.lastName = "";
+        this.password = "";
     }    
 
 
@@ -50,7 +56,7 @@ public class UserSenzu implements Serializable {
     }
 
     
-    protected boolean emailExists() throws AlreadyExistsException {
+    private boolean emailExists() throws AlreadyExistsException {
         for (User user : MockDatabase.getInstance().getUsers()) {
             if (user.getEmail().equals(email)) {
                 throw new AlreadyExistsException("The email " + email + " already in use.");
@@ -59,7 +65,7 @@ public class UserSenzu implements Serializable {
         return false;
     }
 
-    protected boolean usernameExists() throws DoesNotExistException {
+    private boolean usernameExists() throws DoesNotExistException {
         for (User user : MockDatabase.getInstance().getUsers()) {
             if (user.getUsername().equals(username)) {
                 return true;
