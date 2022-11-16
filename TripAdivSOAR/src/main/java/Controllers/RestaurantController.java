@@ -27,6 +27,7 @@ public class RestaurantController {
     private static String contact = "";
     private static String menu = "";
     private static String specialdiet = "";
+    private static ArrayList<Integer> ratings ;
     
 
     public static Restaurant findByRestaurantName(String restaurantname) throws DoesNotExistException {
@@ -86,5 +87,11 @@ public class RestaurantController {
         return specialdiet;
     }
     
-    
+    public static ArrayList<Integer> getRatings() {
+        return ratings;
+    }
+    public static void setRatings(Integer rating)  {
+        ratings = new ArrayList<>();
+        RestaurantController.ratings.add(rating) ;
+    }
 }
