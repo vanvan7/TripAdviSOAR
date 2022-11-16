@@ -98,7 +98,7 @@ public class Main {
                     address = sc.nextLine();
                     System.out.println("Enter a cookingtype:");
                     cookingtype = sc.nextLine();
-                    System.out.println("Enter a telefonnumber:");
+                    System.out.println("Enter a phone number:");
                     contact = sc.nextLine();
                     // find out how to do a List Array
                     System.out.println(RestaurantUserController.getMenu());
@@ -176,6 +176,7 @@ public class Main {
 
     public static void userHomePage() {
         String choice, subChoice, restaurantname;
+        Integer rating;
         do {
             System.out.println("Enter:"
                     + "\n[q] to log out"
@@ -193,6 +194,18 @@ public class Main {
                     restaurantname = sc.nextLine();
                     LoginController.setRestaurantName(restaurantname);
                     LoginController.restaurantLogsIn();
+                    System.out.println("Enter: "
+                                + "\n[q] to go back"
+                                + "\n[1] to rate the Restaurant");
+                    subChoice = sc.nextLine();
+                    switch (subChoice) {
+                        case "1":
+                            System.out.println("Enter the rating of the Restaurant:"); 
+                            rating = sc.nextInt();
+                            RestaurantController.setRatings(rating);
+                            LoginController.getCurrentRestaurant().setRatings(rating);
+                            break;
+                    }
                     break;
                  // I modified that to test the research (see modification in LoginController / chris November 8th
 //                    do {
