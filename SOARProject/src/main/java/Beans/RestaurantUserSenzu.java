@@ -5,7 +5,6 @@
  */
 package Beans;
 
-import static Beans.RestaurantUserSenzu.findByUsername;
 import Exceptions.DoesNotExistException;
 import Database.MockDatabase;
 import Exceptions.AlreadyExistsException;
@@ -24,24 +23,23 @@ import java.io.Serializable;
 @SessionScoped
 public class RestaurantUserSenzu implements Serializable {
 
-  private static String username = "";
-    private static String password = "";
-    private static String email = "";
-    private static String restaurantname = "";
-    private static String owner = "";
-    private static String address = "";
-    private static String datetime = "";
-    private static String price = "";
-    private static String cookingtype = "";
-    private static String contact = "";
-    //private static String menu = "";
-    //private static String specialdiet = "";
+  private String username = "";
+    private String password = "";
+    private String email = "";
+    private String restaurantname = "";
+    private String owner = "";
+    private String address = "";
+    private String datetime = "";
+    private String price = "";
+    private String cookingtype = "";
+    private String contact = "";
+
     //----------------------------------------------------added
-    private static ArrayList<String> menu;
-    private static ArrayList<String> specialdiet;
+    private ArrayList<String> menu;
+    private ArrayList<String> specialdiet;
     //-----------------------------------------------------added
 
-    public static void createARestaurantUser() {
+    public void createARestaurantUser() {
         try {
             if (!emailExists() && !usernameExists()) {
                 MockDatabase.getInstance().addAUser(new User(username, restaurantname, email, password));
@@ -49,6 +47,20 @@ public class RestaurantUserSenzu implements Serializable {
         } catch (AlreadyExistsException | DoesNotExistException ex) {
             System.out.println(ex.getMessage());
         }
+       // empty values
+        this.username = "";
+        this.password = "";
+        this.email = "";
+        this.restaurantname = "";
+        this.owner = "";
+        this.address = "";
+        this.datetime = "";
+        this.price = "";
+        this.cookingtype = "";
+        this.contact = "";
+        this.menu = new ArrayList<>();
+        this.specialdiet = new ArrayList<>();
+    
     }    
     
     protected static User findByUsername(String username) throws DoesNotExistException {
@@ -60,7 +72,7 @@ public class RestaurantUserSenzu implements Serializable {
         throw new DoesNotExistException("The user " + username + " does not exist.");
     }
     
-    protected static boolean emailExists() throws AlreadyExistsException {
+    protected boolean emailExists() throws AlreadyExistsException {
         for (User user : MockDatabase.getInstance().getUsers()) {
             if (user.getEmail().equals(email)) {
                 throw new AlreadyExistsException("The email " + email + " already in use.");
@@ -69,7 +81,7 @@ public class RestaurantUserSenzu implements Serializable {
         return false;
      }     
     
-    protected static boolean usernameExists() throws DoesNotExistException {
+    protected boolean usernameExists() throws DoesNotExistException {
         for (User user : MockDatabase.getInstance().getUsers()) {
             if (user.getUsername().equals(username)) {
                 return true;
@@ -80,43 +92,43 @@ public class RestaurantUserSenzu implements Serializable {
     
    
     //GET
-    public static String getEmail() {
+    public String getEmail() {
         return email;
     }
 
-    public static String getRestaurantname() {
+    public String getRestaurantname() {
         return restaurantname;
     }
 
-    public static String getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public static String getUsername() {
+    public String getUsername() {
         return username;
     }
     
-    public static String getOwner() {
+    public String getOwner() {
         return owner;
     }
 
-    public static String getAddress() {
+    public String getAddress() {
         return address;
     }
 
-    public static String getDatetime() {
+    public String getDatetime() {
         return datetime;
     }
 
-    public static String getPrice() {
+    public String getPrice() {
         return price;
     }
     
-    public static String getCookingtype() {
+    public String getCookingtype() {
         return cookingtype;
     }
 
-    public static String getContact() {
+    public String getContact() {
         return contact;
     }
 
@@ -131,10 +143,10 @@ public class RestaurantUserSenzu implements Serializable {
     //}
    
    //----------------------------------------------added => don't return error on NEtbeans
-   public static ArrayList<String> getMenu(){
+   public ArrayList<String> getMenu(){
         return menu;
     }
-   public static ArrayList<String> getSpecialdiet(){
+   public ArrayList<String> getSpecialdiet(){
         return specialdiet;
     }
     
@@ -143,67 +155,67 @@ public class RestaurantUserSenzu implements Serializable {
     
     //SET
 
-    public static void setEmail(String email) {
-        RestaurantUserSenzu.email = email;
+    public void setEmail(String email) {
+        this.email = email;
     }
     
-    public static void setRestaurantname(String restaurantname) {
-        RestaurantUserSenzu.restaurantname = restaurantname;
+    public void setRestaurantname(String restaurantname) {
+        this.restaurantname = restaurantname;
     }
     
-    public static void setPassword(String password) {
-        RestaurantUserSenzu.password = password;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public static void setUsername(String username) {
-        RestaurantUserSenzu.username = username;
+    public void setUsername(String username) {
+        this.username = username;
     }
     
-    public static void setOwner(String owner) {
-        RestaurantUserSenzu.owner = owner;
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 
-    public static void setAddress(String address) {
-        RestaurantUserSenzu.address = address;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public static void setDatetime(String datetime) {
-        RestaurantUserSenzu.datetime = datetime;
+    public void setDatetime(String datetime) {
+        this.datetime = datetime;
     }
 
-    public static void setPrice(String price) {
-        RestaurantUserSenzu.price = price;
+    public void setPrice(String price) {
+        this.price = price;
     }
 
-    public static void setCookingtype(String cookingtype) {
-        RestaurantUserSenzu.cookingtype = cookingtype;
+    public void setCookingtype(String cookingtype) {
+        this.cookingtype = cookingtype;
     }
     
     
-    public static void setContact(String contact) {
-        RestaurantUserSenzu.contact = contact;
+    public void setContact(String contact) {
+        this.contact = contact;
     }
 
     // Not sure if the following two are correct, because there are a list 
 //    public static void setMenu(String menu) {
-//        RestaurantUserSenzu.menu = menu;
+//        this.menu = menu;
 //    }
 //    
     
     //public static void setSpecialdiet(String specialdiet) {
-    //    RestaurantUserSenzu.specialdiet = specialdiet;
+    //    this.specialdiet = specialdiet;
     //}
     //------------------------------------------------------------------added
     
     
    
-    public static void setMenu(ArrayList<String> menu) {
-        RestaurantUserSenzu.menu = menu;
+    public void setMenu(ArrayList<String> menu) {
+        this.menu = menu;
     }
     
     
-    public static void setSpecialdiet(ArrayList<String> specialdiet){
-        RestaurantUserSenzu.specialdiet = specialdiet;
+    public void setSpecialdiet(ArrayList<String> specialdiet){
+        this.specialdiet = specialdiet;
     }
 
     //-----------------------------------------------------------------------added  
