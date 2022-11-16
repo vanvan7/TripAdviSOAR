@@ -5,6 +5,7 @@
  */
 package Models;
 
+import Controllers.RestaurantController;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -28,8 +29,7 @@ public class Restaurant {
     private String contact;
     private ArrayList<String> menu;
     private ArrayList<String> specialdiet; 
-    
-//    static ArrayList<String> commentsratings;
+    private static ArrayList<Integer> ratings;
     
     
     //constructor
@@ -55,8 +55,8 @@ public class Restaurant {
 //        //this.ing = rating; 
         specialdiet = new ArrayList<>();  //probably not correct 
         specialdiet.addAll(specialdietlist);  //probably not correct 
-//        commentsratings = new ArrayList<>();  //probably not correct 
-//        commentsratings.addAll(commentsratingslist);  //probably not correct 
+        ratings = new ArrayList<>();  //probably not correct 
+
         
     }
     
@@ -102,9 +102,9 @@ public class Restaurant {
         return specialdiet;
     }
     
-//    public ArrayList getCommentsRatings() {
-//        return commentsratings;
-//    }
+    public ArrayList<Integer> getRatings() {
+        return ratings;
+    }
 //    
     
     // if the restaurant have a different login: (Check with melike)
@@ -132,6 +132,10 @@ public class Restaurant {
     public void setPassword(String password) {
         this.password = password.hashCode();
     }
+    
+    public void setRatings(Integer rating)  {
+        Restaurant.ratings.add(rating) ;
+    }
 
     public boolean isPasswordCorrect(String password) {
         return password.hashCode() == this.password;
@@ -153,7 +157,7 @@ public class Restaurant {
                 + "\nDate Time: " + this.datetime
                 + "\nPrice: " + this.price
                 + "\nMenu: " + Arrays.toString(menu.toArray()) + '}'
-                + "\nSpecial Diet: " + Arrays.toString(specialdiet.toArray()) + '}';
+                + "\nSpecial Diet: " + Arrays.toString(specialdiet.toArray()) + '}'
+                + "\nRatings: " + ratings + '}';
     }
 }
-
