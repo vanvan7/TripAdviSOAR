@@ -9,17 +9,17 @@
         <h:form>
             <h:panelGrid columns="2">
                 <h:outputText value="Username"/>
-                <h:inputText value="#{userSenzu.username}" />
+                <h:inputText value="#{restaurantUserSenzu.username}" />
                 <h:outputText value="First Name"/>
-                <h:inputText value="#{userSenzu.firstName}" />
+                <h:inputText value="#{restaurantUserSenzu.firstName}" />
                 <h:outputText value="Last Name"/>
-                <h:inputText value="#{userSenzu.lastName}" />
+                <h:inputText value="#{restaurantUserSenzu.lastName}" />
                 <h:outputText value="Email"/>
-                <h:inputText value="#{userSenzu.email}" />
+                <h:inputText value="#{restaurantUserSenzu.email}" />
                 <h:outputText value="Password"/>
-                <h:inputSecret value="#{userSenzu.password}" />
+                <h:inputSecret value="#{restaurantUserSenzu.password}" />
                 <br/>
-                <h:commandButton value="Create a User" action="#{userSenzu.createAUser()}"/>
+                <h:commandButton value="Create a User" action="#{restaurantUserSenzu.createAUser()}"/>
                 <br/>
                 <h:commandButton value="Go Back to Main Menu" action="/MainPage/MainPage.xhtml?faces-redirect=true"/>
             </h:panelGrid>

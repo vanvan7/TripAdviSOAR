@@ -22,21 +22,23 @@ import java.io.Serializable;
 @SessionScoped
 public class LoginSenzu implements Serializable {
 
-    private static String username = "";
-    private static String password = "";
+    private String username = "";
+    private String password = "";
     private static String restaurantname = "";
     private static User currentUser;
     private static Restaurant currentRestaurant;
 
-    public static void userLogsIn() {
+    public String userLogsIn() {
         try {
             User user = findByUsername(username);
             if (user != null && user.isPasswordCorrect(password)) {
                 currentUser = user;
+                return "/UserPage/UserMainPage.xhtml?faces-redirect=true";
             }
         } catch (DoesNotExistException ex) {
             System.out.println(ex.getMessage());
         }
+        return "/MainPage/LoginPage.xhtml?faces-redirect=true";
     }
     
     public static void restaurantLogsIn(){
@@ -64,11 +66,11 @@ public class LoginSenzu implements Serializable {
         return currentRestaurant;
     }
 
-    public static String getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public static String getUsername() {
+    public String getUsername() {
         return username;
     }
 
@@ -76,12 +78,12 @@ public class LoginSenzu implements Serializable {
         LoginSenzu.currentUser = currentUser;
     }
 
-    public static void setPassword(String password) {
-        LoginSenzu.password = password;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public static void setUsername(String username) {
-        LoginSenzu.username = username;
+    public void setUsername(String username) {
+        this.username = username;
     }
     
     public static void setRestaurantName(String restaurantname){
