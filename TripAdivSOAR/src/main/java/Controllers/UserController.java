@@ -17,8 +17,8 @@ import java.util.ArrayList;
 public class UserController {
     
     private static String username = "";
-    private static String firstName = "";
-    private static String lastName = "";
+    private static String firstname = "";
+    private static String lastname = "";
     private static String email = "";
     private static String password = "";
     
@@ -27,7 +27,7 @@ public class UserController {
     public static void createAUser() {
         try {
             if (!emailExists() && !usernameExists()) {
-                MockDatabase.getInstance().addAUser(new User(username, firstName, lastName, email, password));
+                MockDatabase.getInstance().addAUser(new User(username, firstname, lastname, email, password));
             } //add to mock databese if User created
         } catch (AlreadyExistsException | DoesNotExistException ex) {
             System.out.println(ex.getMessage());
@@ -69,11 +69,11 @@ public class UserController {
     }
 
     public static String getFirstName() {
-        return firstName;
+        return firstname;
     }
 
     public static String getLastName() {
-        return lastName;
+        return lastname;
     }
 
     public static String getPassword() {
@@ -89,11 +89,11 @@ public class UserController {
     }
 
     public static void setFirstName(String firstName) {
-        UserController.firstName = firstName;
+        UserController.firstname = firstName;
     }
 
-    public static void setLastName(String lastName) {
-        UserController.lastName = lastName;
+    public static void setLastName(String lastname) {
+        UserController.lastname = lastname;
     }
 
     public static void setPassword(String password) {
