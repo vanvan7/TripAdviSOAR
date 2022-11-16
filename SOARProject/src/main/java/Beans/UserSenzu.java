@@ -23,8 +23,8 @@ import java.io.Serializable;
 public class UserSenzu implements Serializable {
 
     private String username = "";
-    private String firstName = "";
-    private String lastName = "";
+    private String firstname = "";
+    private String lastname = "";
     private String email = "";
     private String password = "";
     
@@ -32,7 +32,7 @@ public class UserSenzu implements Serializable {
     public void createAUser() {
         try {
             if (!emailExists() && !usernameExists()) {
-                MockDatabase.getInstance().addAUser(new User(username, firstName, lastName, email, password));
+                MockDatabase.getInstance().addAUser(new User(username, firstname, lastname, email, password));
             } //add to mock databese if User created
         } catch (AlreadyExistsException | DoesNotExistException ex) {
             System.out.println(ex.getMessage());
@@ -40,8 +40,8 @@ public class UserSenzu implements Serializable {
         // empty values
         this.email = "";
         this.username = "";
-        this.firstName = "";
-        this.lastName = "";
+        this.firstname = "";
+        this.lastname = "";
         this.password = "";
     }    
 
@@ -75,16 +75,16 @@ public class UserSenzu implements Serializable {
         
     }
     
-    public  String getEmail() {
+    public String getEmail() {
         return email;
     }
 
     public String getFirstName() {
-        return firstName;
+        return firstname;
     }
 
     public String getLastName() {
-        return lastName;
+        return lastname;
     }
 
     public String getPassword() {
@@ -100,11 +100,11 @@ public class UserSenzu implements Serializable {
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        this.firstname = firstName;
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        this.lastname = lastName;
     }
 
     public void setPassword(String password) {
