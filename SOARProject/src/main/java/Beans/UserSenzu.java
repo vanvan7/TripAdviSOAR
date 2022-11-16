@@ -22,15 +22,14 @@ import java.io.Serializable;
 @SessionScoped
 public class UserSenzu implements Serializable {
 
-  private static String username = "";
-    private static String firstName = "";
-    private static String lastName = "";
-    private static String email = "";
-    private static String password = "";
+  private String username = "";
+    private String firstName = "";
+    private String lastName = "";
+    private String email = "";
+    private String password = "";
     
     
-    
-    public static void createAUser() {
+    public void createAUser() {
         try {
             if (!emailExists() && !usernameExists()) {
                 MockDatabase.getInstance().addAUser(new User(username, firstName, lastName, email, password));
@@ -51,7 +50,7 @@ public class UserSenzu implements Serializable {
     }
 
     
-    protected static boolean emailExists() throws AlreadyExistsException {
+    protected boolean emailExists() throws AlreadyExistsException {
         for (User user : MockDatabase.getInstance().getUsers()) {
             if (user.getEmail().equals(email)) {
                 throw new AlreadyExistsException("The email " + email + " already in use.");
@@ -60,7 +59,7 @@ public class UserSenzu implements Serializable {
         return false;
     }
 
-    protected static boolean usernameExists() throws DoesNotExistException {
+    protected boolean usernameExists() throws DoesNotExistException {
         for (User user : MockDatabase.getInstance().getUsers()) {
             if (user.getUsername().equals(username)) {
                 return true;
@@ -70,44 +69,44 @@ public class UserSenzu implements Serializable {
         
     }
     
-        public static String getEmail() {
+    public  String getEmail() {
         return email;
     }
 
-    public static String getFirstName() {
+    public String getFirstName() {
         return firstName;
     }
 
-    public static String getLastName() {
+    public String getLastName() {
         return lastName;
     }
 
-    public static String getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public static String getUsername() {
+    public String getUsername() {
         return username;
     }
 
-    public static void setEmail(String email) {
-        UserSenzu.email = email;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public static void setFirstName(String firstName) {
-        UserSenzu.firstName = firstName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public static void setLastName(String lastName) {
-        UserSenzu.lastName = lastName;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public static void setPassword(String password) {
-        UserSenzu.password = password;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public static void setUsername(String username) {
-        UserSenzu.username = username;
+    public void setUsername(String username) {
+        this.username = username;
     }
  
     
