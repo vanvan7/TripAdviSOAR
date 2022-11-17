@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <head>
+        <title>TripAdviSOAR</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <h:form>
+            <h:panelGrid columns="1">
+                <h:outputText value="Write a Restaurant name : "/>
+                <h:inputText value="#{loginSenzu.restaurantname}"/>
+                <h:commandButton value="Search" action="#{loginSenzu.restaurantLogsIn()}"/>
+                    <h:panelGrid columns="2">
+                        <h:outputText value="Current restaurant name: "/>
+                        <h:outputText value="#{loginSenzu.currentRestaurant.restaurantname}"/>
+                        <h:outputText value="Contact : "/>
+                        <h:outputText value="#{loginSenzu.currentRestaurant.contact}"/> 
+                        <h:outputText value="Email : "/>
+                        <h:outputText value="#{loginSenzu.currentRestaurant.email}"/> 
+                        <h:outputText value="Address : "/>
+                        <h:outputText value="#{loginSenzu.currentRestaurant.address}"/> 
+                        <h:outputText value="Cooking Type : "/>
+                        <h:outputText value="#{loginSenzu.currentRestaurant.cookingtype}"/> 
+                        <h:outputText value="Owner : "/>
+                        <h:outputText value="#{loginSenzu.currentRestaurant.owner}"/> 
+                        <h:outputText value="Opening hours : "/>
+                        <h:outputText value="#{loginSenzu.currentRestaurant.datetime}"/> 
+                        <h:outputText value="Current restaurant name: "/>
+                        <h:outputText value="#{loginSenzu.currentRestaurant.restaurantname}"/> 
+                        <h:outputText value="Price range : "/>
+                        <h:outputText value="#{loginSenzu.currentRestaurant.price}"/> 
+                        <h:outputText value="Menu : "/>
+                        <h:outputText value="#{loginSenzu.currentRestaurant.menu}"/> 
+                        <h:outputText value="Special diet : "/>
+                        <h:outputText value="#{loginSenzu.currentRestaurant.specialdiet}"/> 
+                    </h:panelGrid>
+                <br/>
+                <h:commandButton value="Go Back to Main Menu" action="/MainPage/MainPage.xhtml?faces-redirect=true"/>
+            </h:panelGrid>
+        </h:form>
+    </body>
+</html>
