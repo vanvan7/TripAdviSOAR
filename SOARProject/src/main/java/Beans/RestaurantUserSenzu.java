@@ -18,7 +18,7 @@ import java.io.Serializable;
 /**
  *
  * @author chris
- */
+ **/
 @Named(value = "restaurantUserSenzu")
 @SessionScoped
 public class RestaurantUserSenzu implements Serializable {
