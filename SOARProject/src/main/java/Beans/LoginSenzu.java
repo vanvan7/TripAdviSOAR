@@ -24,9 +24,9 @@ public class LoginSenzu implements Serializable {
 
     private String username = "";
     private String password = "";
-    private static String restaurantname = "";
-    private static User currentUser;
-    private static Restaurant currentRestaurant;
+    private String restaurantname = "";
+    private User currentUser;
+    private Restaurant currentRestaurant;
 
     public String userLogsIn() {
         try {
@@ -41,28 +41,29 @@ public class LoginSenzu implements Serializable {
         return "/MainPage/LoginPage.xhtml?faces-redirect=true";
     }
     
-    public static void restaurantLogsIn(){
+    public void restaurantLogsIn(){
         try {
             Restaurant restaurant = findByRestaurantName (restaurantname);
             if (restaurant != null){
                 currentRestaurant = restaurant;
-                System.out.println(LoginSenzu.getCurrentRestaurant().toString());
-
+                System.out.println(this.getCurrentRestaurant().toString());
+                
             }
         } catch (DoesNotExistException ex) {
             System.out.println(ex.getMessage());
         }
+
     }
 
-    public static void userLogsout() {
+    public void userLogsout() {
         currentUser = null;
     }
 
-    public static User getUserLoggedIn() {
+    public User getCurrentUser() {
         return currentUser;
     }
     
-    public static Restaurant getCurrentRestaurant(){
+    public Restaurant getCurrentRestaurant(){
         return currentRestaurant;
     }
 
@@ -73,9 +74,16 @@ public class LoginSenzu implements Serializable {
     public String getUsername() {
         return username;
     }
-
-    public static void setCurrentUser(User currentUser) {
-        LoginSenzu.currentUser = currentUser;
+    
+     public String getRestaurantname() {
+        return restaurantname;
+    }
+    public void setCurrentUser(User currentUser) {
+        this.currentUser = currentUser;
+    }
+    
+    public void setCurrentRestaurant(Restaurant currentRestaurant) {
+        this.currentRestaurant = currentRestaurant;
     }
 
     public void setPassword(String password) {
@@ -86,8 +94,8 @@ public class LoginSenzu implements Serializable {
         this.username = username;
     }
     
-    public static void setRestaurantName(String restaurantname){
-        LoginSenzu.restaurantname = restaurantname;
+    public void setRestaurantname(String restaurantname){
+        this.restaurantname = restaurantname;
     }
     
     

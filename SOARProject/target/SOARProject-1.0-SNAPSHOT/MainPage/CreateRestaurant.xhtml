@@ -10,14 +10,21 @@
             <h:panelGrid columns="2">
                 <h:outputText value="Username"/>
                 <h:inputText value="#{restaurantUserSenzu.username}" />
-                <h:outputText value="First Name"/>
-                <h:inputText value="#{restaurantUserSenzu.firstName}" />
-                <h:outputText value="Last Name"/>
-                <h:inputText value="#{restaurantUserSenzu.lastName}" />
+                <h:outputText value="Restaurant name"/>
+                <h:inputText value="#{restaurantUserSenzu.restaurantname}" />
                 <h:outputText value="Email"/>
                 <h:inputText value="#{restaurantUserSenzu.email}" />
                 <h:outputText value="Password"/>
                 <h:inputSecret value="#{restaurantUserSenzu.password}" />
+                <h:outputText value="Owner's name"/>
+                <h:inputText value="#{restaurantUserSenzu.owner}" />
+                <h:outputText value="Restaurant's address"/>
+                <h:inputText value="#{restaurantUserSenzu.address}" />
+                <h:outputText value="Cooking type"/>
+                <h:inputText value="#{restaurantUserSenzu.cookingtype}" />
+                <h:outputText value="Phone number"/>
+                <h:inputText value="#{restaurantUserSenzu.contact}" />
+                <!-- Sri will add the list for menu and special diet -->
                 <br/>
                 <h:commandButton value="Create a User" action="#{restaurantUserSenzu.createAUser()}"/>
                 <br/>

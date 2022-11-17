@@ -23,15 +23,15 @@ import java.io.Serializable;
 @SessionScoped
 public class RestaurantSenzu implements Serializable {
 
-   private static String restaurantname = "";
-    private static String owner = "";
-    private static String address = "";
-    private static String datetime = "";
-    private static String price = "";
-    private static String cookingtype = "";
-    private static String contact = "";
-    private static String menu = "";
-    private static String specialdiet = "";
+    private String restaurantname = "";
+    private String owner = "";
+    private String address = "";
+    private String datetime = "";
+    private String price = "";
+    private String cookingtype = "";
+    private String contact = "";
+    private String menu = "";
+    private String specialdiet = "";
     
 
     public static Restaurant findByRestaurantName(String restaurantname) throws DoesNotExistException {
@@ -45,49 +45,49 @@ public class RestaurantSenzu implements Serializable {
      }
     
     
-    public static ArrayList<Restaurant> getRestaurant() {
+    public ArrayList<Restaurant> getRestaurant() {
         return MockDatabase.getInstance().getRestaurant();
        
     }
     
-    public static String getRestaurantName() {
+    public String getRestaurantname() {
         return restaurantname;
         
     }
     
-    public static void setRestaurantName(String restaurantname) {
-        RestaurantSenzu.restaurantname = restaurantname;
+    public void setRestaurantname(String restaurantname) {
+        this.restaurantname = restaurantname;
     }
     
-    public static String getOwnerName() {
+    public String getOwnerName() {
         return owner;
     }
     
-    public static String getAddress() {
+    public String getAddress() {
         return address;
     }
     
-    public static String getDatetime() {
+    public String getDatetime() {
         return datetime;
     }
     
-    public static String getPrice() {
+    public String getPrice() {
         return price;
     }
     
-    public static String getCookingtype() {
+    public String getCookingtype() {
         return cookingtype;
     }
     
-    public static String getContact() {
+    public String getContact() {
         return contact;
     }
     
-    public static String getMenu() {
+    public String getMenu() {
         return menu;
     }
     
-    public static String getSpecialdiet() {
+    public String getSpecialdiet() {
         return specialdiet;
     }
     
