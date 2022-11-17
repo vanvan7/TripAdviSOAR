@@ -100,11 +100,11 @@ public class UserSenzu implements Serializable {
     }
 
     public void setFirstName(String firstName) {
-        this.firstname = firstName;
+        this.firstname = firstname;
     }
 
     public void setLastName(String lastName) {
-        this.lastname = lastName;
+        this.lastname = lastname;
     }
 
     public void setPassword(String password) {
