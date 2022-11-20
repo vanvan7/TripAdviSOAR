@@ -34,12 +34,13 @@ public class LoginSenzu implements Serializable {
             if (user != null && user.isPasswordCorrect(password)) {
                 currentUser = user;
                 return "/UserPage/UserMainPage.xhtml?faces-redirect=true";
-            }
+            }          
         } catch (DoesNotExistException ex) {
             System.out.println(ex.getMessage());
         }
         return "/MainPage/LoginPage.xhtml?faces-redirect=true";
     }
+    
     
     public void restaurantLogsIn(){
         try {
@@ -47,12 +48,25 @@ public class LoginSenzu implements Serializable {
             if (restaurant != null){
                 currentRestaurant = restaurant;
                 System.out.println(this.getCurrentRestaurant().toString());
-                
+        
             }
         } catch (DoesNotExistException ex) {
             System.out.println(ex.getMessage());
         }
 
+    }
+    
+    public String RestaurantLogIn() {
+        try {
+            User user = findByUsername(username);
+            if (user != null && user.isPasswordCorrect(password)) {
+                currentUser = user;
+                return "/RestaurantPage/RestaurantMainPage.xhtml?faces-redirect=true";
+            }          
+        } catch (DoesNotExistException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return "/MainPage/LoginPage.xhtml?faces-redirect=true";
     }
 
     public String userLogsout() {
