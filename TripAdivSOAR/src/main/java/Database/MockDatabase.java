@@ -83,6 +83,9 @@ public class MockDatabase {
         users.add(user);
     }
     
+    public void addARestaurant (Restaurant restaurant){
+        restaurants.add(restaurant);
+    }
     //Accessors to use in the views
     public ArrayList<User> getUsers() {
         return users;
@@ -100,5 +103,8 @@ public class MockDatabase {
 //    public static void addCommentsRatings(CommentsRatings commentRating){
 //        commentsratings.add(commentRating);
 //    }
+
+  
+
 
 }

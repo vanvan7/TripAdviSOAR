@@ -24,7 +24,9 @@ public class Main {
     }
 
     private static void homePage() {
-        String choice, subChoice,username, password, firstName, lastName, email, owner,address, cookingtype, contact, restaurantname;
+        String choice, subChoice,username, password, firstname, lastname, email, owner,address, cookingtype, contact, restaurantname, datetime, price;
+        ArrayList<String>menu=new ArrayList<String>();
+        ArrayList<String>specialdiet=new ArrayList<String>(); 
         
         do {
             System.out.println("Enter:"
@@ -68,16 +70,16 @@ public class Main {
                     System.out.println("Enter a username:");
                     username = sc.nextLine();
                     System.out.println("Enter a first name:");
-                    firstName = sc.nextLine();
+                    firstname = sc.nextLine();
                     System.out.println("Enter a last name:");
-                    lastName = sc.nextLine();
+                    lastname = sc.nextLine();
                     System.out.println("Enter an email:");
                     email = sc.nextLine();
                     System.out.println("Enter a password:");
                     password = sc.nextLine();
                     UserController.setUsername(username);
-                    UserController.setFirstName(firstName);
-                    UserController.setLastName(lastName);
+                    UserController.setFirstName(firstname);
+                    UserController.setLastName(lastname);
                     UserController.setEmail(email);
                     UserController.setPassword(password);
                     UserController.createAUser();
@@ -100,8 +102,10 @@ public class Main {
                     cookingtype = sc.nextLine();
                     System.out.println("Enter a phone number:");
                     contact = sc.nextLine();
-                    // find out how to do a List Array
-                    System.out.println(RestaurantUserController.getMenu());
+                    System.out.println("Enter opening hours with that format (hh:mm-hh:mm): ");
+                    datetime = sc.nextLine();
+                    System.out.println("Enter the global price that way (cheap : $, average : $$, expensive : $$$ : ");
+                    price = sc.nextLine();
                     do {
                         System.out.println("Make a choice: "
                                 + "\n[q] to go back"
@@ -109,12 +113,11 @@ public class Main {
                         subChoice = sc.nextLine();
                         switch (subChoice) {
                             case "1":
-                                System.out.println("Enter the name of the dish:");
-                                ArrayList<String>menu=new ArrayList<String>();                                
+                                System.out.println("Enter the name of the dish:");  
+                                menu = new ArrayList<>();
                                 menu.add(sc.nextLine());
-                                RestaurantUserController.setMenu(menu);
                                 break;
-                            case "q":     
+                            case "q":  
                                 break;
                             default:
                                 System.out.println("Choice = " + subChoice + " does not exist.");
@@ -131,10 +134,9 @@ public class Main {
                         subChoice = sc.nextLine();
                         switch (subChoice) {
                             case "1":
-                                System.out.println("Enter a special Diet:");
-                                ArrayList<String>specialdiet=new ArrayList<String>();                                
+                                System.out.println("Enter a special Diet:"); 
+                                specialdiet = new ArrayList<>();
                                 specialdiet.add(sc.nextLine());
-                                RestaurantUserController.setSpecialdiet(specialdiet);
                                 break;
                             case "q":
                                 break;
@@ -153,7 +155,12 @@ public class Main {
                     RestaurantUserController.setAddress(address);
                     RestaurantUserController.setCookingtype(cookingtype);
                     RestaurantUserController.setContact(contact);
-                    RestaurantUserController.createARestaurantUser(); // creates an Restaurant User -> changed
+                    RestaurantUserController.setDatetime(datetime);
+                    RestaurantUserController.setPrice(price);
+                    RestaurantUserController.setMenu(menu);
+                    RestaurantUserController.setSpecialdiet(specialdiet);
+                    RestaurantUserController.createARestaurantUser();
+                    
                     break;
                 case "5":
                     System.out.println("Write a Restaurant name : ");

@@ -10,7 +10,6 @@ import Exceptions.DoesNotExistException;
 import Database.MockDatabase;
 import Exceptions.AlreadyExistsException;
 import Models.Restaurant;
-import Models.RestaurantUser;
 import Models.User;
 import java.util.ArrayList;
 
@@ -32,15 +31,16 @@ public class RestaurantUserController {
     private static String contact = "";
     //private static String menu = "";
     //private static String specialdiet = "";
-    //----------------------------------------------------added
+
     private static ArrayList<String> menu;
     private static ArrayList<String> specialdiet;
-    //-----------------------------------------------------added
 
     public static void createARestaurantUser() {
         try {
             if (!emailExists() && !usernameExists()) {
                 MockDatabase.getInstance().addAUser(new User(username, restaurantname, email, password));
+                MockDatabase.getInstance().addARestaurant
+                (new Restaurant(username, password, email, restaurantname, owner, address, datetime, price, cookingtype, contact, menu, specialdiet));
             } //add to mock databese if User created
         } catch (AlreadyExistsException | DoesNotExistException ex) {
             System.out.println(ex.getMessage());
@@ -189,9 +189,7 @@ public class RestaurantUserController {
     //public static void setSpecialdiet(String specialdiet) {
     //    RestaurantUserController.specialdiet = specialdiet;
     //}
-    //------------------------------------------------------------------added
-    
-    
+
    
     public static void setMenu(ArrayList<String> menu) {
         RestaurantUserController.menu = menu;
@@ -202,5 +200,4 @@ public class RestaurantUserController {
         RestaurantUserController.specialdiet = specialdiet;
     }
 
-    //-----------------------------------------------------------------------added
 }
