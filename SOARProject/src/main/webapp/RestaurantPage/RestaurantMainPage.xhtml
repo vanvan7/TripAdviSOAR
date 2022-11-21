@@ -14,6 +14,8 @@
             background-attachment:fixed;  
             background-size:cover;
             text-align:center;
+            margin-top: 80px; 
+            margin-bottom: 100px;
         }
         input{
             color:black;
@@ -28,9 +30,9 @@
 
         </style>
         <h:form>
-            <h:panelGrid columns="1">
+            <h:panelGrid columns="1" style="width:80%;margin:0px auto;">
                 <h:link value="To see Ratings" outcome="SeeRatings.xhtml?faces-redirect=true" />
-                <h:link value="To show Restaurant User Information" outcome="ShowUserInfo.xhtml?faces-redirect=true" /> 
+                <h:link value="To show Restaurant User Information" outcome="ShowRestaurantUserInfo.xhtml?faces-redirect=true"  /> 
                 <h:commandButton value="Log out" action="#{loginSenzu.userLogsout()}"/>
             </h:panelGrid>
         </h:form>
