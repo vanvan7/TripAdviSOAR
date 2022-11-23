@@ -16,7 +16,7 @@ and open the template in the editor.
                 border-collapse: collapse;
                 width: 90%;
                 margin:0px auto;
-                background-color:rgba(0,0,0,.25);
+                background-color:rgba(255,255,255,.75);
             }
 
             th, td {
@@ -31,7 +31,7 @@ and open the template in the editor.
     <h:body>
         <style>
             body {
-                background-image:url('https://insights.regencylighting.com/hubfs/Blog_Images/blurred-lines-restaurant-lighting.jpg');
+                background-image:url('https://www.disneytouristblog.com/wp-content/uploads/2019/07/docking-bay-7-food-cargo-star-wars-galaxys-edge-disney-counter-service-restaurant-234.jpg');
                 background-repeat:no-repeat;
                 background-attachment:fixed;  
                 background-size:cover;
@@ -47,18 +47,19 @@ and open the template in the editor.
             h1{
                 color:black;
             }
+            
 
 
         </style>
         <h:form>
             <!-- <h:panelGrid columns="1" style= "width:100%;margin:0px auto;">-->
-            <h:outputText value="Restaurants" style="font-size: 30px"/>
+            <h:outputText value="Restaurants" style="font-size: 45px;color:white"/>
             <br/>
             <br/>
             <table>
                 <tr>
                     <th>Restaurant Name</th>
-                    <th>Adress</th>
+                    <th>Address</th>
                     <th>Owner</th>
                     <th>Opening Hours</th>
                     <th>Price ($-$$$)</th>
@@ -83,7 +84,7 @@ and open the template in the editor.
                 </ui:repeat>
             </table>
             <br/>
-            <h:commandButton value="Go Back to Main Menu" action="/MainPage/MainPage.xhtml?faces-redirect=true"/>
+            <h:commandButton value="Go Back to Main Menu" action="/MainPage/MainPage.xhtml?faces-redirect=true" style="font-size:15px"/>
             <!--</h:panelGrid>-->
         </h:form>
     </h:body>
