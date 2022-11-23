@@ -30,6 +30,7 @@ public class Restaurant {
     private ArrayList<String> menu;
     private ArrayList<String> specialdiet; 
     private static ArrayList<Integer> ratings;
+    private ArrayList<Integer> ratinglist;
     
     
     //constructor
@@ -37,7 +38,7 @@ public class Restaurant {
                       String restaurantname, String owner, 
                       String address, String datetime, String price, 
                       String cookingtype, String contact,ArrayList<String> menulist, 
-                      ArrayList<String> specialdietlist) {
+                      ArrayList<String> specialdietlist, ArrayList<Integer> ratinglist) {
                     
         this.username = username;
         this.password = password.hashCode();
@@ -56,8 +57,8 @@ public class Restaurant {
         specialdiet = new ArrayList<>();  //probably not correct 
         specialdiet.addAll(specialdietlist);  //probably not correct 
         ratings = new ArrayList<>();  //probably not correct 
-
-        
+//        ratings.addAll(ratinglist);
+        this.ratinglist = new ArrayList<Integer>();
     }
     
     
@@ -105,6 +106,10 @@ public class Restaurant {
     public ArrayList<Integer> getRatings() {
         return ratings;
     }
+    
+    public ArrayList<Integer> getRatingList() {
+        return ratinglist;
+    }
 //    
     
     // if the restaurant have a different login: (Check with melike)
@@ -134,9 +139,12 @@ public class Restaurant {
     }
     
     public void setRatings(Integer rating)  {
-        Restaurant.ratings.add(rating) ;
+     this.ratinglist.add(rating);
     }
 
+    public void setRatingList (ArrayList<Integer> ratinglist){
+        this.ratinglist = ratinglist;
+    }
     public boolean isPasswordCorrect(String password) {
         return password.hashCode() == this.password;
     }
@@ -158,6 +166,6 @@ public class Restaurant {
                 + "\nPrice: " + this.price
                 + "\nMenu: " + Arrays.toString(menu.toArray()) + '}'
                 + "\nSpecial Diet: " + Arrays.toString(specialdiet.toArray()) + '}'
-                + "\nRatings: " + ratings + '}';
+                + "\nRatings: " + ratinglist + '}';
     }
 }
