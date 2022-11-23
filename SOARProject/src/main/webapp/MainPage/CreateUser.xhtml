@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>TripAdviSOAR</title>
     </h:head>
@@ -20,7 +21,7 @@
             color:black;
             font-style:italic;
             text-align:center;
-        }y
+        }
 
         h1{
             color:black;
@@ -41,7 +42,9 @@
                 <h:outputText value="Password"/>
                 <h:inputSecret value="#{userSenzu.password}" />
                 <br/>
-                <h:commandButton value="Create a User" action="#{userSenzu.createAUser()}"/>
+                <h:commandButton value="Create a User" action="#{userSenzu.createAUser()}" >                 
+                    <f:actionListener binding="/UserPage/UserMainPage.xhtml?faces-redirect=true" />
+                </h:commandButton>
                 <br/>
                 <h:commandButton value="Go Back to Main Menu" action="/MainPage/MainPage.xhtml?faces-redirect=true"/>
             </h:panelGrid>
