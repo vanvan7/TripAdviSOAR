@@ -7,7 +7,7 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <head>
+    <h:head>
         <title>TripAdviSOAR</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <style>
@@ -28,8 +28,8 @@ and open the template in the editor.
 
             tr:hover {background-color: #F6DDCC;}
         </style>
-    </head>
-    <body>
+    </h:head>
+    <h:body>
         <style>
             body {
                 background-image:url('https://insights.regencylighting.com/hubfs/Blog_Images/blurred-lines-restaurant-lighting.jpg');
@@ -44,7 +44,7 @@ and open the template in the editor.
                 color:black;
                 font-style:italic;
                 text-align:center;
-            }y
+            }
 
             h1{
                 color:black;
@@ -61,7 +61,7 @@ and open the template in the editor.
             <h:commandButton value="Search" action="#{loginSenzu.restaurantLogsIn()}"/>
             <br/>
             <br/>
-                <h:panelGrid columns = "2" style= "width:60%;margin:x auto;">
+                <h:panelGrid columns = "2" style= "width:60%;margin:0 auto;">
                     <h:outputText value="Current restaurant name: "/>
                     <h:outputText value="#{loginSenzu.currentRestaurant.restaurantname}"/>
                     <h:outputText value="Contact : "/>
@@ -89,5 +89,5 @@ and open the template in the editor.
             <br/>
             <h:commandButton value="Go Back to Main Menu" action="/UserPage/UserMainPage.xhtml?faces-redirect=true"/>         
         </h:form>
-    </body>
+    </h:body>
 </html>
