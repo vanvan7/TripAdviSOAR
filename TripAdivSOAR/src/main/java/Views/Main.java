@@ -183,6 +183,7 @@ public class Main {
 
     public static void userHomePage() {
         String choice, subChoice, restaurantname;
+        Integer rating;
         do {
             System.out.println("Enter:"
                     + "\n[q] to log out"
@@ -200,14 +201,18 @@ public class Main {
                     restaurantname = sc.nextLine();
                     LoginController.setRestaurantName(restaurantname);
                     LoginController.restaurantLogsIn();
+                    do{
                         System.out.println("Enter: "
-                                    + "\n[q] to go back"
-                                    + "\n[1] to rate the Restaurant");
+                                        + "\n[q] to go back"
+                                        + "\n[1] to rate the Restaurant");
+                        
                         subChoice = sc.nextLine();
                         switch (subChoice) {
                             case "1":
                                 System.out.println("Enter the rating of the Restaurant (from 1 to 5):"); 
-                                RestaurantController.setRatingList(sc.nextInt());
+                                rating = sc.nextInt();
+                                sc.nextLine();
+                                RestaurantController.setRatingList(rating);
                                 break;
                             case "q":
                                 break;
@@ -215,7 +220,7 @@ public class Main {
                                 System.out.println("Choice = " + subChoice + " does not exist.");
                                 break;
                             }
-                        break;
+                    }while (!subChoice.equals("q"));
                 case "3":
                     System.out.println(LoginController.getUserLoggedIn().toString());
                     break;
