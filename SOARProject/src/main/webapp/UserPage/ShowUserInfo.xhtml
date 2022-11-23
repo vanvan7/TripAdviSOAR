@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>TripAdviSOAR</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <style>
+            Table {
+                border-collapse: collapse;
+                width: 50%;
+                margin:0px auto;
+                background-color:rgba(0,0,0,.25);
+            }
+
+            th, td {
+                padding: 8px;
+                text-align: left;
+                border-bottom: 1px solid #DDD;
+                text-align: center;
+            }
+
+            tr:hover {background-color: #F6DDCC;}
+        </style>
+    </h:head>
+         
+    <h:body>
+        <style>
+        body {
+            background-image:url('https://insights.regencylighting.com/hubfs/Blog_Images/blurred-lines-restaurant-lighting.jpg');
+            background-repeat:no-repeat;
+            background-attachment:fixed;  
+            background-size:cover;
+            text-align:center;
+            margin-top: 80px; 
+            margin-bottom: 100px;
+        }
+        input{
+            color:black;
+            font-style:italic;
+            text-align:center;
+        }y
+
+        h1{
+            color:black;
+        }
+
+
+        </style>
+        <h:outputText value="User Information" style="font-size: 30px"/>
+        <br/>
+        <br/>
+        <h:form>
+            <h:panelGrid columns="2" style="width:50%;margin:0px auto;">
+                <h:outputText style="font-weight: bold;" value="Username"/>
+                <h:outputText value="#{loginSenzu.currentUser.username}"/>
+                <h:outputText style="font-weight: bold;" value="First Name"/>
+                <h:outputText value="#{loginSenzu.currentUser.firstname}"/>
+                <h:outputText style="font-weight: bold;" value="Last Name"/>
+                <h:outputText value="#{loginSenzu.currentUser.lastname}"/>
+                <h:outputText style="font-weight: bold;" value="Email"/>               
+                <h:outputText value="#{loginSenzu.currentUser.email}"/>
+                </h:panelGrid>
+            <br/>
+            <h:commandButton value="Go Back to Main Menu" action="/UserPage/UserMainPage.xhtml?faces-redirect=true"/>          
+        </h:form>
+    </h:body>
+</html>
+

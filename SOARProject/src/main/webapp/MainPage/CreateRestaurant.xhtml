@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>TripAdviSOAR</title>
+    </h:head>
+    <h:body>
+        <style>
+        body {
+            background-image:url('https://insights.regencylighting.com/hubfs/Blog_Images/blurred-lines-restaurant-lighting.jpg');
+            background-repeat:no-repeat;
+            background-attachment:fixed;  
+            background-size:cover;
+            text-align:center;
+            margin-top: 80px; 
+            margin-bottom: 100px;
+        }
+        input{
+            color:black;
+            font-style:italic;
+            text-align:center;
+        }y
+
+        h1{
+            color:black;
+        }
+
+
+        </style>
+        <h:form>
+            <h:panelGrid columns="2" style= "width:80%;margin:0px auto;">
+                <h:outputText value="Username"/>
+                <h:inputText value="#{restaurantUserSenzu.username}" />
+                <h:outputText value="Restaurant name"/>
+                <h:inputText value="#{restaurantUserSenzu.restaurantname}" />
+                <h:outputText value="Email"/>
+                <h:inputText value="#{restaurantUserSenzu.email}" />
+                <h:outputText value="Password"/>
+                <h:inputSecret value="#{restaurantUserSenzu.password}" />
+                <h:outputText value="Owner's name"/>
+                <h:inputText value="#{restaurantUserSenzu.owner}" />
+                <h:outputText value="Restaurant's address"/>
+                <h:inputText value="#{restaurantUserSenzu.address}" />
+                <h:outputText value="Cooking type"/>
+                <h:inputText value="#{restaurantUserSenzu.cookingtype}" />
+                <h:outputText value="Phone number"/>
+                <h:inputText value="#{restaurantUserSenzu.contact}" />
+                <!-- Sri will add the list for menu and special diet -->
+                <br/>
+                <h:commandButton value="Create a User" action="#{restaurantUserSenzu.createARestaurantUser()}"/>
+                <br/>
+                <h:commandButton value="Go Back to Main Menu" action="/MainPage/MainPage.xhtml?faces-redirect=true"/>
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
+
