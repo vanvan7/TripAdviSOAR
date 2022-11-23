@@ -27,7 +27,7 @@ public class RestaurantController {
     private static String contact = "";
     private static String menu = "";
     private static String specialdiet = "";
-    private static ArrayList<Integer> ratings ;
+    private static ArrayList<Integer> ratings = new ArrayList<Integer>();
     
 
     public static Restaurant findByRestaurantName(String restaurantname) throws DoesNotExistException {
@@ -90,8 +90,16 @@ public class RestaurantController {
     public static ArrayList<Integer> getRatings() {
         return ratings;
     }
-    public static void setRatings(Integer rating)  {
-        ratings = new ArrayList<>();
-        RestaurantController.ratings.add(rating) ;
+    
+    public static Restaurant getCurrentRestaurantName() {
+        return LoginController.getCurrentRestaurant();
+    }
+    public static void setRatingList(Integer rating)  {
+        Restaurant rate = LoginController.getCurrentRestaurant();
+        rate.setRatings(rating);
+    }
+    
+    public static void add(Integer ratings) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
