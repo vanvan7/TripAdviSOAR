@@ -1,11 +1,13 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>TripAdviSOAR</title>
     </h:head>
-    <h:body>
+    <body>
         <style>
         body {
             background-image:url('https://insights.regencylighting.com/hubfs/Blog_Images/blurred-lines-restaurant-lighting.jpg');
@@ -42,17 +44,32 @@
                 <h:inputText value="#{restaurantUserSenzu.owner}" />
                 <h:outputText value="Restaurant's address"/>
                 <h:inputText value="#{restaurantUserSenzu.address}" />
+                <h:outputText value="Restaurant's opening hours (in format hh:mm-hh:mm)"/>
+                <h:inputText value="#{restaurantUserSenzu.datetime}" />
+                <h:outputText value="Restaurant's prices(cheap : $, average : $$, expensive : $$$)"/>
+                <h:inputText value="#{restaurantUserSenzu.price}" />
                 <h:outputText value="Cooking type"/>
                 <h:inputText value="#{restaurantUserSenzu.cookingtype}" />
                 <h:outputText value="Phone number"/>
                 <h:inputText value="#{restaurantUserSenzu.contact}" />
                 <!-- Sri will add the list for menu and special diet -->
-                <br/>
+                <h:outputText value="Select a special diet: "/>
+                <p:selectManyButton value="#{restaurantUserSenzu.specialdiet}">  
+                    <f:selectItem itemLabel="Lactosefree" itemValue="Lactose Free" />  
+                    <f:selectItem itemLabel="GlutenFree" itemValue="Gluten Free" />  
+                    <f:selectItem itemLabel="Vegan" itemValue="Vegan" />  
+                    <f:selectItem itemLabel="Paleo" itemValue="Paleo" />  
+                </p:selectManyButton>  
+                <p:commandButton value="Submit" update="bol" icon="ui-icon-check" />  
+                <p:spacer />  
+                <h:outputText value="Selected:" />  
+                <p:dataList id="bol" value="#{restaurantUserSenzu.specialdiet}" var="character" emptyMessage="No character selected">  
+                <h:outputText value="#{character}" style="font-weight: bold" />  
+                </p:dataList>      
                 <h:commandButton value="Create a User" action="#{restaurantUserSenzu.createARestaurantUser()}"/>
                 <br/>
                 <h:commandButton value="Go Back to Main Menu" action="/MainPage/MainPage.xhtml?faces-redirect=true"/>
             </h:panelGrid>
         </h:form>
-    </h:body>
+    </body>
 </html>
-
