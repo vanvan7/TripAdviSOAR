@@ -10,6 +10,7 @@ import Controllers.RestaurantUserController;
 import Controllers.RestaurantController;
 import Controllers.UserController;
 import Exceptions.DoesNotExistException;
+import Models.Restaurant;
 //import Controllers.ReviewController;
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -27,7 +28,6 @@ public class Main {
         String choice, subChoice,username, password, firstname, lastname, email, owner,address, cookingtype, contact, restaurantname, datetime, price;
         ArrayList<String>menu=new ArrayList<String>();
         ArrayList<String>specialdiet=new ArrayList<String>(); 
-        
         do {
             System.out.println("Enter:"
                     + "\n[q] to quit the application"
@@ -183,7 +183,6 @@ public class Main {
 
     public static void userHomePage() {
         String choice, subChoice, restaurantname;
-        Integer rating;
         do {
             System.out.println("Enter:"
                     + "\n[q] to log out"
@@ -201,51 +200,22 @@ public class Main {
                     restaurantname = sc.nextLine();
                     LoginController.setRestaurantName(restaurantname);
                     LoginController.restaurantLogsIn();
-                    System.out.println("Enter: "
-                                + "\n[q] to go back"
-                                + "\n[1] to rate the Restaurant");
-                    subChoice = sc.nextLine();
-                    switch (subChoice) {
-                        case "1":
-                            System.out.println("Enter the rating of the Restaurant:"); 
-                            rating = sc.nextInt();
-                            RestaurantController.setRatings(rating);
-                            LoginController.getCurrentRestaurant().setRatings(rating);
-                            break;
-                    }
-                    break;
-                 // I modified that to test the research (see modification in LoginController / chris November 8th
-//                    do {
-//                        System.out.println("Enter: "
-//                                + "\n[q] to go back"
-//                                + "\n[1] to search a Restaurant");
-//                        subChoice = sc.nextLine();
-//                        switch (subChoice) {
-//                            case "1":
-//                                System.out.println("Enter the name of the Restaurant:");
-//                                restaurantname = sc.nextLine();
-//                                RestaurantController.setRestaurantName(restaurantname); 
-//                                RestaurantController.findByRestaurantName(restaurantname);
-//  
-////                                do {
-////                                    System.out.println("Enter: "
-////                                            + "\n[q] to go back"
-////                                            + "\n[1] to make a review rate a Restaurant");
-////                                    subChoice = sc.nextLine();
-////                                    switch (subChoice) {
-////                                        case "1":
-////                                            System.out.println("Enter a comment:");
-////                                            username = sc.nextLine();
-////                                            System.out.println("Enter a rating:");
-////                                            username = sc.nextLine();
-//                            case "q":
-//                                break;
-//                            default:
-//                                System.out.println("Choice = " + subChoice + " does not exist.");
-//                                break;
-//                                    }
-//                        } while (!subChoice.equals("q"));
-//                        break;       
+                        System.out.println("Enter: "
+                                    + "\n[q] to go back"
+                                    + "\n[1] to rate the Restaurant");
+                        subChoice = sc.nextLine();
+                        switch (subChoice) {
+                            case "1":
+                                System.out.println("Enter the rating of the Restaurant (from 1 to 5):"); 
+                                RestaurantController.setRatingList(sc.nextInt());
+                                break;
+                            case "q":
+                                break;
+                            default:
+                                System.out.println("Choice = " + subChoice + " does not exist.");
+                                break;
+                            }
+                        break;
                 case "3":
                     System.out.println(LoginController.getUserLoggedIn().toString());
                     break;
