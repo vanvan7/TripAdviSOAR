@@ -8,59 +8,33 @@
     </h:head>
     <h:body>
         <style>
-            a:link {
-                color: black;
-                background-color: transparent;
-                text-decoration: none;
-            }
-            a:visited {
-                color: grey;
-                background-color: transparent;
-                text-decoration: none;
-            }
-            a:hover {
-                color: white;
-                background-color: transparent;
-                text-decoration: underline;
-            }
-            a:active {
-                color: F6DDCC;
-                background-color: transparent;
-                text-decoration: underline;
-            }
-        </style>
-        <style>
-            body {
-                background-image:url('https://insights.regencylighting.com/hubfs/Blog_Images/blurred-lines-restaurant-lighting.jpg');
-                background-repeat:no-repeat;
-                background-attachment:fixed;  
-                background-size:cover;
-                text-align:center;
-                margin-top: 80px; 
-                margin-bottom: 100px;
-            }
-            input{
-                color:black;
-                font-style:italic;
-                text-align:center;
-            }
+        body {
+            background-image:url('https://insights.regencylighting.com/hubfs/Blog_Images/blurred-lines-restaurant-lighting.jpg');
+            background-repeat:no-repeat;
+            background-attachment:fixed;  
+            background-size:cover;
+            text-align:center;
+            margin-top: 80px; 
+            margin-bottom: 100px;
+        }
+        input{
+            color:black;
+            font-style:italic;
+            text-align:center;
+        }y
 
-            h1 {
-                color:black;
-            }
+        h1{
+            color:black;
+        }
 
 
         </style>
         <h:form>
-            <h4>
-                <h:panelGrid columns="1" style="width:80%;margin:0px auto;">
-                    <h:link value="To see Ratings" outcome="SeeRatings.xhtml?faces-redirect=true" />
-                    <br/>
-                    <h:link value="To show Restaurant User Information" outcome="ShowRestaurantUserInfo.xhtml?faces-redirect=true"  />     
-                    <br/>        
-                    <h:commandButton class="btn btn-primary" value="Log out" action="#{loginSenzu.userLogsout()}"/>
-                </h:panelGrid>
-            </h4>
+            <h:panelGrid columns="1" style="width:80%;margin:0px auto;">
+                <h:link value="To see Ratings" outcome="SeeRatings.xhtml?faces-redirect=true" />
+                <h:link value="To show Restaurant User Information" outcome="ShowRestaurantUserInfo.xhtml?faces-redirect=true"  /> 
+                <h:commandButton value="Log out" action="#{loginSenzu.userLogsout()}"/>
+            </h:panelGrid>
         </h:form>
     </h:body>
 </html>

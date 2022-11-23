@@ -11,81 +11,62 @@ and open the template in the editor.
     <head>
         <title>TripAdviSOAR</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <style>
-            Table {
-                border-collapse: collapse;
-                width: 90%;
-                margin:0px auto;
-                background-color:rgba(0,0,0,.25);
-                text-align: center;
-            }
-
-            th, td {
-                padding: 8px;
-                text-align: left;
-                border-bottom: 1px solid #DDD;
-            }
-
-            tr:hover {background-color: #F6DDCC;}
-        </style>
     </head>
     <h:body>
         <style>
-            body {
-                background-image:url('https://insights.regencylighting.com/hubfs/Blog_Images/blurred-lines-restaurant-lighting.jpg');
-                background-repeat:no-repeat;
-                background-attachment:fixed;  
-                background-size:cover;
-                text-align:center;
-                margin-top: 80px; 
-                margin-bottom: 100px;
-            }
-            input{
-                color:black;
-                font-style:italic;
-                text-align:center;
+        body {
+            background-image:url('https://insights.regencylighting.com/hubfs/Blog_Images/blurred-lines-restaurant-lighting.jpg');
+            background-repeat:no-repeat;
+            background-attachment:fixed;  
+            background-size:cover;
+            text-align:center;
+            margin-top: 80px; 
+            margin-bottom: 100px;
+        }
+        input{
+            color:black;
+            font-style:italic;
+            text-align:center;
+        }y
 
-                h1{
-                    color:black;
-                }
+        h1{
+            color:black;
+        }
 
 
         </style>
+        
         <h:form>
-            <!-- <h:panelGrid columns="1" style= "width:100%;margin:0px auto;">-->
-            <h:outputText value="Restaurants" style="font-size: 30px"/>
+            <h:panelGrid columns="2" style="width:80%;margin:0px auto;">
+                <h:outputText value="Restaurant" style="font-size: 30px"/>
                 <br/>
+                <ui:repeat value="#{restaurantSenzu.restaurant}" var="item">
+                    <h:outputText value="-----" />
+                    <h:panelGrid columns="2">
+                        <h:outputText value="Restaurant Name" />
+                        <h:outputText value="#{item.restaurantname}" />
+                        <h:outputText value="Address" />
+                        <h:outputText value="#{item.address}" />
+                        <h:outputText value="Owner" />
+                        <h:outputText value="#{item.owner}" />
+                        <h:outputText value="Opening Hours" />
+                        <h:outputText value="#{item.datetime}" />
+                        <h:outputText value="Price ($-$$$)" />
+                        <h:outputText value="#{item.price}" />
+                        <h:outputText value="Cookingtype" />
+                        <h:outputText value="#{item.cookingtype}" />
+                        <h:outputText value="Contact" />
+                        <h:outputText value="#{item.contact}" />
+                        <h:outputText value="Menu" />
+                        <h:outputText value="#{item.menu}" /> 
+                        <h:outputText value="Special Diet" />
+                        <h:outputText value="#{item.specialdiet}" /> 
+                    </h:panelGrid>
+                    <h:outputText value="-----" />
+                </ui:repeat>
                 <br/>
-                <table>
-                    <tr>
-                        <th>Restaurant Name</th>
-                        <th>Adress</th>
-                        <th>Owner</th>
-                        <th>Opening Hours</th>
-                        <th>Price ($-$$$)</th>
-                        <th>Cookingtype</th>
-                        <th>Contact</th>
-                        <th>Menu</th>
-                        <th>Special Diets</th>                         
-                    </tr>
-                    <ui:repeat value="#{restaurantSenzu.restaurant}" var="item">                                                    
-                        <tr>
-                            <td><h:outputText value="#{item.restaurantname}" /></td>
-                            <td><h:outputText value="#{item.address}" /></td>
-                            <td><h:outputText value="#{item.owner}" /></td>
-                            <td><h:outputText value="#{item.datetime}" /></td>
-                            <td><h:outputText value="#{item.price}" /></td>
-                            <td><h:outputText value="#{item.cookingtype}" /></td>
-                            <td><h:outputText value="#{item.contact}" /></td>
-                            <td><h:outputText value="#{item.menu}" /></td>
-                            <td><h:outputText value="#{item.specialdiet}" /></td>
-                        </tr>           
-
-                    </ui:repeat>
-                </table>
-                <br/>
-                
-            <h:commandButton value="Go Back to Main Menu" action="/UserPage/UserMainPage.xhtml?faces-redirect=true"/>
+                <h:commandButton value="Go Back to Main Menu" action="/UserPage/UserMainPage.xhtml?faces-redirect=true"/>
+            </h:panelGrid>
         </h:form>
     </h:body>
 </html>

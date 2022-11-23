@@ -10,23 +10,6 @@ and open the template in the editor.
     <h:head>
         <title>TripAdviSOAR</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <style>
-            Table {
-                border-collapse: collapse;
-                width: 50%;
-                margin:0px auto;
-                background-color:rgba(0,0,0,.25);
-            }
-
-            th, td {
-                padding: 8px;
-                text-align: left;
-                border-bottom: 1px solid #DDD;
-                text-align: center;
-            }
-
-            tr:hover {background-color: #F6DDCC;}
-        </style>
     </h:head>
          
     <h:body>
@@ -52,22 +35,19 @@ and open the template in the editor.
 
 
         </style>
-        <h:outputText value="User Information" style="font-size: 30px"/>
-        <br/>
-        <br/>
         <h:form>
-            <h:panelGrid columns="2" style="width:50%;margin:0px auto;">
-                <h:outputText style="font-weight: bold;" value="Username"/>
+            <h:panelGrid columns="2" style="width:80%;margin:0px auto;">
+                <h:outputText value="Username:"/>
                 <h:outputText value="#{loginSenzu.currentUser.username}"/>
-                <h:outputText style="font-weight: bold;" value="First Name"/>
+                <h:outputText value="First Name:"/>
                 <h:outputText value="#{loginSenzu.currentUser.firstname}"/>
-                <h:outputText style="font-weight: bold;" value="Last Name"/>
+                <h:outputText value="Last Name:"/>
                 <h:outputText value="#{loginSenzu.currentUser.lastname}"/>
-                <h:outputText style="font-weight: bold;" value="Email"/>               
+                <h:outputText value="Email:"/>
                 <h:outputText value="#{loginSenzu.currentUser.email}"/>
-                </h:panelGrid>
-            <br/>
-            <h:commandButton value="Go Back to Main Menu" action="/UserPage/UserMainPage.xhtml?faces-redirect=true"/>          
+                <br/>
+                <h:commandButton value="Go Back to Main Menu" action="/UserPage/UserMainPage.xhtml?faces-redirect=true"/>
+            </h:panelGrid>
         </h:form>
     </h:body>
 </html>
