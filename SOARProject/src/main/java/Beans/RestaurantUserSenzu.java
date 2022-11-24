@@ -18,12 +18,13 @@ import java.io.Serializable;
 /**
  *
  * @author chris
- **/
+ *
+ */
 @Named(value = "restaurantUserSenzu")
 @SessionScoped
 public class RestaurantUserSenzu implements Serializable {
 
-  private String username = "";
+    private String username = "";
     private String password = "";
     private String email = "";
     private String restaurantname = "";
@@ -39,16 +40,17 @@ public class RestaurantUserSenzu implements Serializable {
     private ArrayList<String> specialdiet;
     //-----------------------------------------------------added
 
-    public void createARestaurantUser() {
+    public String createARestaurantUser() {
         try {
             if (!emailExists() && !usernameExists()) {
                 MockDatabase.getInstance().addAUser(new User(username, restaurantname, email, password));
                 MockDatabase.getInstance().addARestaurant(new Restaurant(username, password, email, restaurantname, owner, address, datetime, price, cookingtype, contact, menu, specialdiet));
             } //add to mock databese if User created
+            return "/RestaurantPage/RestaurantMainPage.xhtml?faces-redirect=true";
         } catch (AlreadyExistsException | DoesNotExistException ex) {
             System.out.println(ex.getMessage());
         }
-       // empty values
+        // empty values
         this.username = "";
         this.password = "";
         this.email = "";
@@ -61,9 +63,9 @@ public class RestaurantUserSenzu implements Serializable {
         this.contact = "";
         this.menu = new ArrayList<>();
         this.specialdiet = new ArrayList<>();
-    
-    }    
-    
+        return "/MainPage/LoginPage.xhtml?faces-redirect=true";
+    }
+
     protected static User findByUsername(String username) throws DoesNotExistException {
         for (User user : MockDatabase.getInstance().getUsers()) {
             if (user.getUsername().equals(username)) {
@@ -72,7 +74,7 @@ public class RestaurantUserSenzu implements Serializable {
         }
         throw new DoesNotExistException("The user " + username + " does not exist.");
     }
-    
+
     protected boolean emailExists() throws AlreadyExistsException {
         for (User user : MockDatabase.getInstance().getUsers()) {
             if (user.getEmail().equals(email)) {
@@ -80,8 +82,8 @@ public class RestaurantUserSenzu implements Serializable {
             }
         }
         return false;
-     }     
-    
+    }
+
     protected boolean usernameExists() throws DoesNotExistException {
         for (User user : MockDatabase.getInstance().getUsers()) {
             if (user.getUsername().equals(username)) {
@@ -90,8 +92,7 @@ public class RestaurantUserSenzu implements Serializable {
         }
         return false;
     }
-    
-   
+
     //GET
     public String getEmail() {
         return email;
@@ -108,7 +109,7 @@ public class RestaurantUserSenzu implements Serializable {
     public String getUsername() {
         return username;
     }
-    
+
     public String getOwner() {
         return owner;
     }
@@ -124,7 +125,7 @@ public class RestaurantUserSenzu implements Serializable {
     public String getPrice() {
         return price;
     }
-    
+
     public String getCookingtype() {
         return cookingtype;
     }
@@ -133,37 +134,31 @@ public class RestaurantUserSenzu implements Serializable {
         return contact;
     }
 
-
-    
     //public static ArrayList<Menu> getMenu() {
     //    return MockDatabase.getInstance().getMenu();
     //}
-    
     //public static ArrayList<SpecialDiet> getSpecialdiet() {
     //    return MockDatabase.getInstance().getSpecialdiet();
     //}
-   
-   //----------------------------------------------added => don't return error on NEtbeans
-   public ArrayList<String> getMenu(){
+    //----------------------------------------------added => don't return error on NEtbeans
+    public ArrayList<String> getMenu() {
         return menu;
     }
-   public ArrayList<String> getSpecialdiet(){
+
+    public ArrayList<String> getSpecialdiet() {
         return specialdiet;
     }
-    
 
     //---------------------------------------------------added
-    
     //SET
-
     public void setEmail(String email) {
         this.email = email;
     }
-    
+
     public void setRestaurantname(String restaurantname) {
         this.restaurantname = restaurantname;
     }
-    
+
     public void setPassword(String password) {
         this.password = password;
     }
@@ -171,7 +166,7 @@ public class RestaurantUserSenzu implements Serializable {
     public void setUsername(String username) {
         this.username = username;
     }
-    
+
     public void setOwner(String owner) {
         this.owner = owner;
     }
@@ -191,8 +186,7 @@ public class RestaurantUserSenzu implements Serializable {
     public void setCookingtype(String cookingtype) {
         this.cookingtype = cookingtype;
     }
-    
-    
+
     public void setContact(String contact) {
         this.contact = contact;
     }
@@ -202,23 +196,17 @@ public class RestaurantUserSenzu implements Serializable {
 //        this.menu = menu;
 //    }
 //    
-    
     //public static void setSpecialdiet(String specialdiet) {
     //    this.specialdiet = specialdiet;
     //}
     //------------------------------------------------------------------added
-    
-    
-   
     public void setMenu(ArrayList<String> menu) {
         this.menu = menu;
     }
-    
-    
-    public void setSpecialdiet(ArrayList<String> specialdiet){
+
+    public void setSpecialdiet(ArrayList<String> specialdiet) {
         this.specialdiet = specialdiet;
     }
 
     //-----------------------------------------------------------------------added  
-    
 }
