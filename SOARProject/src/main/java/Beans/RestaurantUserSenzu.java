@@ -38,13 +38,14 @@ public class RestaurantUserSenzu implements Serializable {
     //----------------------------------------------------added
     private ArrayList<String> menu;
     private ArrayList<String> specialdiet;
+    private ArrayList<Integer> ratings;
     //-----------------------------------------------------added
 
     public String createARestaurantUser() {
         try {
             if (!emailExists() && !usernameExists()) {
                 MockDatabase.getInstance().addAUser(new User(username, restaurantname, email, password));
-                MockDatabase.getInstance().addARestaurant(new Restaurant(username, password, email, restaurantname, owner, address, datetime, price, cookingtype, contact, menu, specialdiet));
+                MockDatabase.getInstance().addARestaurant(new Restaurant(username, password, email, restaurantname, owner, address, datetime, price, cookingtype, contact, menu, specialdiet, ratings));
             } //add to mock databese if User created
             return "/RestaurantPage/RestaurantMainPage.xhtml?faces-redirect=true";
         } catch (AlreadyExistsException | DoesNotExistException ex) {
@@ -63,6 +64,7 @@ public class RestaurantUserSenzu implements Serializable {
         this.contact = "";
         this.menu = new ArrayList<>();
         this.specialdiet = new ArrayList<>();
+        this.ratings = new ArrayList<>();
         return "/MainPage/LoginPage.xhtml?faces-redirect=true";
     }
 

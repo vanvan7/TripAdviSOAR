@@ -42,27 +42,27 @@ public class MockDatabase {
         restaurants.add(new Restaurant("waffle1", "1234", "waffle@gmail.com", "The Real Waffle", "Thoralf", "High Avenue 1",
             "11:00-24:00", "$", "Traditional", "0794731452", 
             new ArrayList<>(Arrays.asList("The Authenthic", "Cheesy Lover", "Salted Butter Caramel")),
-            new ArrayList<>(Arrays.asList("Vegetarian", "Lactose free"))));
+            new ArrayList<>(Arrays.asList("Vegetarian", "Lactose free")),(new ArrayList<Integer>())));
         
         restaurants.add(new Restaurant("meat1", "1234", "meat@gmail.com", "Hunter Place", "pascal", "Highway Road 10",
             "18:00-23:00", "$$$", "French", "0798931452",
             new ArrayList<>(Arrays.asList("Steak 300grs", "The raw Road", "Creme Brulee")),
-            new ArrayList<>(Arrays.asList("Lactose free", "Gluten free"))));
+            new ArrayList<>(Arrays.asList("Lactose free", "Gluten free")),(new ArrayList<Integer>())));
         
         restaurants.add (new Restaurant("pizza1", "1234", "pizza@gmail.com", "Pomodoro", "toni", "Beautiful Road 35",
             "12:00-22:00", "$", "Italian", "0761457452",
             new ArrayList<>(Arrays.asList("House pizza", "Melanzane", "Tiramisu")),       
-            new ArrayList<>(Arrays.asList("Vegetarian"))));
+            new ArrayList<>(Arrays.asList("Vegetarian")),(new ArrayList<Integer>())));
         
         restaurants.add (new Restaurant("japanese1", "1234", "japanese@gmail.com", "Oishii Udon", "yoshida", "Michel Road 50",
             "17:00-21:30", "$", "Japanese", "0761237845",
             new ArrayList<>(Arrays.asList("Kitsune Udon", "Shouyu Udon", "Kare Udon")),  
-            new ArrayList<>(Arrays.asList("None"))));
+            new ArrayList<>(Arrays.asList("None")),(new ArrayList<Integer>())));
         
         restaurants.add (new Restaurant("korean1", "1234", "korean@gmail.com", "The spicy House", "seon", "Victoria Road 14",
             "11:00-00:00", "$$", "Korean", "0784521452",
             new ArrayList<>(Arrays.asList("Bibimbap", "Kimchi", "Jjigae")),
-            new ArrayList<>(Arrays.asList("Gluten-free","Lactose free"))));
+            new ArrayList<>(Arrays.asList("Gluten-free","Lactose free")),(new ArrayList<Integer>())));
         }
     };
     

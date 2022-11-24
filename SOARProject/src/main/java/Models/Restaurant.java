@@ -28,7 +28,8 @@ public class Restaurant {
     private String contact;
     private ArrayList<String> menu;
     private ArrayList<String> specialdiet; 
-    
+    private ArrayList<Integer> ratings;
+    private ArrayList<Integer> ratinglist;
 //    static ArrayList<String> commentsratings;
     
     
@@ -37,7 +38,7 @@ public class Restaurant {
                       String restaurantname, String owner, 
                       String address, String datetime, String price, 
                       String cookingtype, String contact,ArrayList<String> menulist, 
-                      ArrayList<String> specialdietlist) {
+                      ArrayList<String> specialdietlist, ArrayList<Integer> ratinglist) {
                     
         this.username = username;
         this.password = password.hashCode();
@@ -55,10 +56,11 @@ public class Restaurant {
         specialdiet.addAll(specialdietlist); 
 //        commentsratings = new ArrayList<>();  //probably not correct 
 //        commentsratings.addAll(commentsratingslist);  //probably not correct 
-        
+        ratings = new ArrayList<>();  //probably not correct 
+//        ratings.addAll(ratinglist);
+        this.ratinglist = new ArrayList<Integer>();
     }
-    
-    
+   
     //public getCommentsRatings (){
         
     //}
@@ -100,6 +102,14 @@ public class Restaurant {
         return specialdiet;
     }
     
+    public ArrayList<Integer> getRatings() {
+        return ratings;
+    }
+    
+    public ArrayList<Integer> getRatingList() {
+        return ratinglist;
+    }
+    
 //    public ArrayList getCommentsRatings() {
 //        return commentsratings;
 //    }
@@ -131,6 +141,14 @@ public class Restaurant {
         this.password = password.hashCode();
     }
 
+    public void setRatings(Integer rating)  {
+     this.ratinglist.add(rating);
+    }
+
+    public void setRatingList (ArrayList<Integer> ratinglist){
+        this.ratinglist = ratinglist;
+    }
+    
     public boolean isPasswordCorrect(String password) {
         return password.hashCode() == this.password;
     }
@@ -152,6 +170,7 @@ public class Restaurant {
                 + "\nPrice: " + this.price
                 + "\nMenu: " + menu + '}'
                 + "\nSpecial Diet: " + Arrays.toString(specialdiet.toArray()) + '}'
+                + "\nRatings: " + ratinglist + '}'
                 + "\n";
     }
 }
