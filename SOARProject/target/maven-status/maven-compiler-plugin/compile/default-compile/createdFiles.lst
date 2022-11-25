@@ -1,0 +1,15 @@
+Database/MockDatabase.class
+Beans/LoginSenzu.class
+Models/User.class
+Exceptions/AlreadyExistsException.class
+Exceptions/DoesNotExistException.class
+Exceptions/WrongPasswordException.class
+Beans/RestaurantUserSenzu.class
+Beans/RestaurantSenzu.class
+Beans/UserSenzu.class
+Exceptions/NoReviewException.class
+com/mycompany/soarproject/resources/JAXRSConfiguration.class
+com/mycompany/soarproject/resources/JavaEE8Resource.class
+Models/Restaurant.class
+Exceptions/NoRestaurantCorrespondingException.class
+Exceptions/WrongUsernameException.class
