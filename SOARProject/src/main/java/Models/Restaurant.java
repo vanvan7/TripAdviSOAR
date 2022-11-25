@@ -28,7 +28,7 @@ public class Restaurant {
     private String contact;
     private ArrayList<String> menu;
     private ArrayList<String> specialdiet; 
-    private Integer ratings;
+    public Integer ratings;
     private ArrayList<Integer> ratinglist;
 //    static ArrayList<String> commentsratings;
     
@@ -53,8 +53,10 @@ public class Restaurant {
         menu = new ArrayList<>(); 
         menu.addAll(menulist); 
         specialdiet = new ArrayList<>();  
-        specialdiet.addAll(specialdietlist); 
+        specialdiet.addAll(specialdietlist);
         this.ratings = ratings;
+        ratinglist = new ArrayList<>();
+        ratinglist.add(ratings);
     }
 
     public String getRestaurantname() {
@@ -97,7 +99,7 @@ public class Restaurant {
         return ratings;
     }
     
-    public ArrayList<Integer> getRatingList() {
+    public ArrayList<Integer> getRatinglist() {
         return ratinglist;
     }
 
@@ -128,10 +130,11 @@ public class Restaurant {
 
     public void setRatings(Integer ratings)  {
      this.ratings = ratings;
+     ratinglist.add(ratings);
     }
 
-    public void setRatingList (ArrayList<Integer> ratinglist){
-        this.ratinglist = ratinglist;
+    public void setRatinglist (ArrayList<Integer> ratinglist){
+        this.ratinglist.add(ratings);
     }
     
     public boolean isPasswordCorrect(String password) {

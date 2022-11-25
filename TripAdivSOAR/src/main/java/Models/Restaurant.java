@@ -29,8 +29,9 @@ public class Restaurant {
     private String contact;
     private ArrayList<String> menu;
     private ArrayList<String> specialdiet; 
-    private static ArrayList<Integer> ratings;
+    private Integer ratings;
     private ArrayList<Integer> ratinglist;
+   
     
     
     //constructor
@@ -56,9 +57,10 @@ public class Restaurant {
 //        //this.ing = rating; 
         specialdiet = new ArrayList<>();  //probably not correct 
         specialdiet.addAll(specialdietlist);  //probably not correct 
-        ratings = new ArrayList<>();  //probably not correct 
+        this.ratings = ratings;
+        ratinglist = new ArrayList<>();  //probably not correct 
 //        ratings.addAll(ratinglist);
-        this.ratinglist = new ArrayList<Integer>();
+        ratinglist.add(ratings);
     }
     
     
@@ -103,11 +105,11 @@ public class Restaurant {
         return specialdiet;
     }
     
-    public ArrayList<Integer> getRatings() {
+    public Integer getRatings() {
         return ratings;
     }
     
-    public ArrayList<Integer> getRatingList() {
+    public ArrayList<Integer> getRatinglist() {
         return ratinglist;
     }
 //    

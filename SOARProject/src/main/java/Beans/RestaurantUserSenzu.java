@@ -47,7 +47,7 @@ public class RestaurantUserSenzu implements Serializable {
                 MockDatabase.getInstance().addAUser(new User(username, restaurantname, email, password));
                 MockDatabase.getInstance().addARestaurant(new Restaurant(username, password, email, restaurantname, owner, address, datetime, price, cookingtype, contact, menu, specialdiet));
             } //add to mock databese if User created
-            return "/RestaurantPage/RestaurantMainPage.xhtml?faces-redirect=true";
+            return "/MainPage/LoginPageRestaurant.xhtml?faces-redirect=true";
         } catch (AlreadyExistsException | DoesNotExistException ex) {
             System.out.println(ex.getMessage());
         }
@@ -65,7 +65,7 @@ public class RestaurantUserSenzu implements Serializable {
         this.menu = new ArrayList<>();
         this.specialdiet = new ArrayList<>();
         this.ratings = new ArrayList<>();
-        return "/MainPage/LoginPage.xhtml?faces-redirect=true";
+        return "/MainPage/LoginPageRestaurant.xhtml?faces-redirect=true";
     }
 
     protected static User findByUsername(String username) throws DoesNotExistException {
