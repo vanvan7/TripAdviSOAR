@@ -40,8 +40,6 @@ public class LoginSenzu implements Serializable {
         }
         return "/MainPage/LoginPage.xhtml?faces-redirect=true";
     }
-    
-    
     public void restaurantLogsIn(){
         try {
             Restaurant restaurant = findByRestaurantName (restaurantname);
@@ -67,7 +65,7 @@ public class LoginSenzu implements Serializable {
         } catch (DoesNotExistException ex) {
             System.out.println(ex.getMessage());
         }
-        return "/MainPage/LoginPage.xhtml?faces-redirect=true";
+        return "LoginPageRestaurant.xhtml?faces-redirect=true";
     }
 
     public String userLogsout() {

@@ -45,7 +45,7 @@ public class RestaurantUserSenzu implements Serializable {
         try {
             if (!emailExists() && !usernameExists()) {
                 MockDatabase.getInstance().addAUser(new User(username, restaurantname, email, password));
-                MockDatabase.getInstance().addARestaurant(new Restaurant(username, password, email, restaurantname, owner, address, datetime, price, cookingtype, contact, menu, specialdiet, ratings));
+                MockDatabase.getInstance().addARestaurant(new Restaurant(username, password, email, restaurantname, owner, address, datetime, price, cookingtype, contact, menu, specialdiet));
             } //add to mock databese if User created
             return "/RestaurantPage/RestaurantMainPage.xhtml?faces-redirect=true";
         } catch (AlreadyExistsException | DoesNotExistException ex) {

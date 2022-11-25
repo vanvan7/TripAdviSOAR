@@ -102,9 +102,9 @@
                 <h:outputText value="Username"/>
                 <h:inputText value="#{userSenzu.username}" />
                 <h:outputText value="First Name"/>
-                <h:inputText value="#{userSenzu.firstName}" />
+                <h:inputText value="#{userSenzu.firstname}" />
                 <h:outputText value="Last Name"/>
-                <h:inputText value="#{userSenzu.lastName}" />
+                <h:inputText value="#{userSenzu.lastname}" />
                 <h:outputText value="Email"/>
                 <h:inputText value="#{userSenzu.email}" />
                 <h:outputText value="Password"/>
@@ -114,6 +114,7 @@
                 <h:commandButton value="Create a User" action="#{userSenzu.createAUser()}" />                 
                     
                 <br/>
+                <h:commandButton value="Log out" action="#{loginSenzu.userLogsout()}"/>
             </h3>
             </h:form>
     </h:body>

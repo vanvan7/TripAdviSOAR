@@ -47,6 +47,7 @@
                 background-color: transparent;
                 text-decoration: underline;
             }
+          
         </style>
         <style>
         body {
@@ -80,8 +81,14 @@
                     <ul class="navbar-nav">
 
                         <li class="nav-item" >
-                            <h:commandLink class="nav-link" value="Log out" action="#{loginSenzu.userLogsout()}" />
-                        </li>                               
+                            <h:link class="nav-link" value="See restaurants" outcome="SeeRestaurant.xhtml?faces-redirect=true"/>
+                        </li>        
+                        <li class="nav-item" >
+                            <h:link class="nav-link" value="Search for a Restaurant" outcome="SearchRestaurant.xhtml?faces-redirect=true"/>
+                        </li>    
+                        <li class="nav-item" >
+                            <h:link class="nav-link" value="Show User Information" outcome="ShowUserInfo.xhtml?faces-redirect=true"/>
+                        </li>    
                     </ul>
                 </h5>
             </div>  
@@ -92,12 +99,12 @@
         <h:form>
             <h3>
             <h:panelGrid columns="1" style="width:80%;margin:0px auto;">
+                <h2>Welcome to our website</h2>
+                <h:outputText value="#{loginSenzu.currentUser.username}" style="font-size:30px"/>
                 
-                <h4><h:link value="To see Restaurants" outcome="SeeRestaurant.xhtml?faces-redirect=true" /></h4>
-                <h4><h:link value="To search for a Restaurant" outcome="SearchRestaurant.xhtml?faces-redirect=true" /></h4>
-                <h4><h:link value="To show User Information" outcome="ShowUserInfo.xhtml?faces-redirect=true" /></h4>
                 <br/>
-                <h:commandButton value="Log out" action="#{loginSenzu.userLogsout()}"/>
+
+                <h:commandButton class="btn btn-primary" value="Log out" action="#{loginSenzu.userLogsout()}"/>
             </h:panelGrid>
         </h3>
         </h:form>

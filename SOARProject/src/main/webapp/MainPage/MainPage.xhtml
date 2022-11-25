@@ -52,7 +52,7 @@
 
 
             <h1>Welcome to TripAdviSOAR</h1>
-            <p>Resize this responsive page to see the effect!</p> 
+            <p>Travel into the diversity of our Restaurants</p> 
         </div>
 
 
@@ -111,14 +111,12 @@
                 <h2>See Restaurants</h2>
                 <h5></h5>
 
-                <p1 style='font-size:12px'>Some text about me in culpa qui officia deserunt mollit anim..</p1>
+                <p1 style='font-size:12px'>Best selection of restaurants in the city !</p1>
             </div>    
             <div class="col-4">
                 <h2>Find Restaurant</h2>
                 <h5></h5>
-                <p1 style='font-size:12px'>Some text..</p1>
-                <br/>
-                <p1 style='font-size:12px'>Sunt in culpa qui officia deolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p1>
+                <p1 style='font-size:12px'>Find something that will suit your craving !</p1>
             </div>  
         </div>
 
@@ -126,7 +124,9 @@
             <div class="col-4">
                 <div class="thumbnail">
                     <a href="/w3images/lights.jpg">
-                        <img src='https://media.architecturaldigest.com/photos/5f720b00b0d2b18d2b0b13bc/master/w_1600%2Cc_limit/Tortuga_%25C2%25A9AmbroiseTezenas_07.jpg' alt="Lights" style="width:100%"></img>
+                        <h:link outcome="/MainPage/SeeRestaurant.xhtml?faces-redirect=true" >
+                        <img src='https://media.architecturaldigest.com/photos/5f720b00b0d2b18d2b0b13bc/master/w_1600%2Cc_limit/Tortuga_%25C2%25A9AmbroiseTezenas_07.jpg' alt="Lights" style="width:100%"></img>                    
+                        </h:link>
                         <div class="caption">
                             <h4><h:link class="nav-link" value="Show all restaurants" outcome="/MainPage/SeeRestaurant.xhtml?faces-redirect=true" /></h4>
                         </div>
@@ -136,7 +136,9 @@
             <div class="col-4">
                 <div class="thumbnail">
                     <a href="/w3images/nature.jpg">
+                        <h:link outcome="SearchRestaurant.xhtml?faces-redirect=true" >
                         <img src='https://media.timeout.com/images/101765797/750/562/image.jpg' alt="Nature" style="width:100%"></img>
+                        </h:link>
                         <div class="caption">
                             <h4><h:link class="nav-link" value="Search for a Restaurant" outcome="SearchRestaurant.xhtml?faces-redirect=true" /></h4>
                         </div>

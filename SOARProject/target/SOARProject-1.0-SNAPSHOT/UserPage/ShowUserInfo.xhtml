@@ -24,7 +24,7 @@
                 border-collapse: collapse;
                 width: 50%;
                 margin:0px auto;
-                background-color:rgba(0,0,0,.25);
+                background-color:rgba(255,255,255,0.5);
             }
 
             th, td {
@@ -96,7 +96,10 @@
                 <h:outputText value="#{loginSenzu.currentUser.lastname}"/>
                 <h:outputText style="font-weight: bold;" value="Email"/>               
                 <h:outputText value="#{loginSenzu.currentUser.email}"/>
+                
             </h:panelGrid>
+            <br/>
+            <h:commandButton class="btn btn-primary" value="Log out" action="#{loginSenzu.userLogsout()}"/>
             </h3>
         </h:form>
     </h:body>

@@ -80,8 +80,11 @@
                     <ul class="navbar-nav">
 
                         <li class="nav-item" >
-                            <h:commandLink class="nav-link" value="Log out" action="#{loginSenzu.userLogsout()}" />
-                        </li>                               
+                            <h:link class="nav-link" value="See ratings" outcome="SeeRatings.xhtml?faces-redirect=true" />
+                        </li>     
+                        <li class="nav-item" >
+                            <h:link class="nav-link" value="Show restaurant user informations" outcome="ShowRestaurantUserInfo.xhtml?faces-redirect=true" />
+                        </li>
                     </ul>
                 </h5>
             </div>  
@@ -92,10 +95,7 @@
         
         <h:form>
             <h3>
-                <h:panelGrid columns="1" style="width:80%;margin:0px auto;">
-                    <h:link value="To see Ratings" outcome="SeeRatings.xhtml?faces-redirect=true" />
-                    <br/>
-                    <h:link value="To show Restaurant User Information" outcome="ShowRestaurantUserInfo.xhtml?faces-redirect=true"  />     
+                <h:panelGrid columns="1" style="width:80%;margin:0px auto;"> 
                     <br/>        
                     <h:commandButton class="btn btn-primary" value="Log out" action="#{loginSenzu.userLogsout()}"/>
                 </h:panelGrid>

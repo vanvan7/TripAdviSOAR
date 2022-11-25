@@ -34,7 +34,8 @@ public class UserSenzu implements Serializable {
             if (!emailExists() && !usernameExists()) {
                 MockDatabase.getInstance().addAUser(new User(username, firstname, lastname, email, password));
             } //add to mock databese if User created
-            return"/UserPage/UserMainPage.xhtml?faces-redirect=true";
+        return"/MainPage/LoginPage.xhtml?faces-redirect=true";
+            
         } catch (AlreadyExistsException | DoesNotExistException ex) {
             System.out.println(ex.getMessage());
         }
@@ -81,11 +82,11 @@ public class UserSenzu implements Serializable {
         return email;
     }
 
-    public String getFirstName() {
+    public String getFirstname() {
         return firstname;
     }
 
-    public String getLastName() {
+    public String getLastname() {
         return lastname;
     }
 
@@ -101,11 +102,11 @@ public class UserSenzu implements Serializable {
         this.email = email;
     }
 
-    public void setFirstName(String firstName) {
+    public void setFirstname(String firstname) {
         this.firstname = firstname;
     }
 
-    public void setLastName(String lastName) {
+    public void setLastname(String lastname) {
         this.lastname = lastname;
     }
 
