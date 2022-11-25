@@ -114,13 +114,16 @@
                     <h:outputText value="#{loginSenzu.currentRestaurant.menu}"/> 
                     <h:outputText value="Special diet : "/>
                     <h:outputText value="#{loginSenzu.currentRestaurant.specialdiet}"/>
-                    <h:outputText value="#{RestaurantSenzu.ratings}"/> 
+                    <h:outputText value="Ratings : "/>
+                    <h:outputText value="#{loginSenzu.currentRestaurant.ratings}"/>
                 </h:panelGrid>
             <br/>
             <br/>
             <p:growl id="messages" showDetail="true"/>
             <h5 class="mt-0">Rate the Restaurant</h5>
-            <p:rating value="#{RestaurantSenzu.ratings}"/>
+            <p:rating value="#{RestaurantSenzu.ratings}">
+                <p:ajax event="rate" listener ="#{restaurantSenzu.setRatings}" update="messages"/>
+            </p:rating>
             <br/>
         </h3>
         </h:form>
