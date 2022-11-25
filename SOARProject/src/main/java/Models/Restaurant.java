@@ -127,7 +127,7 @@ public class Restaurant {
     }
 
     public void setRatings(Integer ratings)  {
-     this.ratinglist.add(ratings);
+     this.ratings = ratings;
     }
 
     public void setRatingList (ArrayList<Integer> ratinglist){
