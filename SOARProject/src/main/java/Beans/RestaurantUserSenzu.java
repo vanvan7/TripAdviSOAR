@@ -38,7 +38,6 @@ public class RestaurantUserSenzu implements Serializable {
     //----------------------------------------------------added
     private ArrayList<String> menu;
     private ArrayList<String> specialdiet;
-    private ArrayList<Integer> ratings;
     //-----------------------------------------------------added
 
     public String createARestaurantUser() {
@@ -64,7 +63,6 @@ public class RestaurantUserSenzu implements Serializable {
         this.contact = "";
         this.menu = new ArrayList<>();
         this.specialdiet = new ArrayList<>();
-        this.ratings = new ArrayList<>();
         return "/MainPage/LoginPageRestaurant.xhtml?faces-redirect=true";
     }
 

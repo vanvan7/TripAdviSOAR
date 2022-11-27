@@ -55,8 +55,8 @@ public class Restaurant {
         specialdiet = new ArrayList<>();  
         specialdiet.addAll(specialdietlist);
         this.ratings = ratings;
-        ratinglist = new ArrayList<>();
-        ratinglist.add(ratings);
+        this.ratinglist = new ArrayList<>();
+        
     }
 
     public String getRestaurantname() {
@@ -130,11 +130,11 @@ public class Restaurant {
 
     public void setRatings(Integer ratings)  {
      this.ratings = ratings;
-     ratinglist.add(ratings);
+     this.ratinglist.add(ratings);
     }
 
     public void setRatinglist (ArrayList<Integer> ratinglist){
-        this.ratinglist.add(ratings);
+        this.ratinglist=ratinglist;
     }
     
     public boolean isPasswordCorrect(String password) {
