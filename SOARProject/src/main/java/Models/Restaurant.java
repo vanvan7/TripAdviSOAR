@@ -26,6 +26,7 @@ public class Restaurant {
     private String price;
     private String cookingtype;
     private String contact;
+    private String dish;
     private ArrayList<String> menu;
     private ArrayList<String> specialdiet; 
     public Integer ratings;
@@ -50,6 +51,7 @@ public class Restaurant {
         this.price = price;
         this.cookingtype = cookingtype;
         this.contact = contact;
+        this.dish = dish;
         menu = new ArrayList<>(); 
         menu.addAll(menulist); 
         specialdiet = new ArrayList<>();  
@@ -110,6 +112,10 @@ public class Restaurant {
     public String getEmail() {
         return email;
     }
+    
+    public String getDish() {
+        return dish;
+    }
 
     public void setUsername(String username) {
         this.username = username;
@@ -135,6 +141,10 @@ public class Restaurant {
 
     public void setRatinglist (ArrayList<Integer> ratinglist){
         this.ratinglist=ratinglist;
+    }
+    
+    public void setDish(String dish) {
+        this.dish = dish;
     }
     
     public boolean isPasswordCorrect(String password) {

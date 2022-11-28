@@ -35,8 +35,7 @@ public class RestaurantUserSenzu implements Serializable {
     private String price = "";
     private String cookingtype = "";
     private String contact = "";
-    private String dish;
-
+    private String dish = "";
     //----------------------------------------------------added
     private ArrayList<String> menu;
     private ArrayList<String> specialdiet;
@@ -63,8 +62,10 @@ public class RestaurantUserSenzu implements Serializable {
         this.price = "";
         this.cookingtype = "";
         this.contact = "";
+        this.dish = "";
         this.menu = new ArrayList<>();
         this.specialdiet = new ArrayList<>();
+        
         return "/MainPage/LoginPageRestaurant.xhtml?faces-redirect=true";
     }
 
@@ -139,6 +140,7 @@ public class RestaurantUserSenzu implements Serializable {
     public String getDish() {
         return dish;
     }
+  
 
     //public static ArrayList<Menu> getMenu() {
     //    return MockDatabase.getInstance().getMenu();
@@ -199,6 +201,7 @@ public class RestaurantUserSenzu implements Serializable {
     
     public void setDish(String dish) {
         this.dish = dish;
+        setMenu(new ArrayList<String>(Arrays.asList(dish.split(", "))));
     }
 
     public void setMenu(ArrayList<String> menu) {
