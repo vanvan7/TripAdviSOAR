@@ -63,7 +63,7 @@ public class RestaurantUserSenzu implements Serializable {
         this.price = "";
         this.cookingtype = "";
         this.contact = "";
-        this.menu = new ArrayList<>(Arrays.asList(dish.split(",")));
+        this.menu = new ArrayList<>();
         this.specialdiet = new ArrayList<>();
         return "/MainPage/LoginPageRestaurant.xhtml?faces-redirect=true";
     }
