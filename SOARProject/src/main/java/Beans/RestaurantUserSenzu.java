@@ -11,6 +11,7 @@ import Exceptions.AlreadyExistsException;
 import Models.Restaurant;
 import Models.User;
 import java.util.ArrayList;
+import java.util.Arrays;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
@@ -34,6 +35,7 @@ public class RestaurantUserSenzu implements Serializable {
     private String price = "";
     private String cookingtype = "";
     private String contact = "";
+    private String dish;
 
     //----------------------------------------------------added
     private ArrayList<String> menu;
@@ -61,7 +63,7 @@ public class RestaurantUserSenzu implements Serializable {
         this.price = "";
         this.cookingtype = "";
         this.contact = "";
-        this.menu = new ArrayList<>();
+        this.menu = new ArrayList<>(Arrays.asList(dish.split(",")));
         this.specialdiet = new ArrayList<>();
         return "/MainPage/LoginPageRestaurant.xhtml?faces-redirect=true";
     }
@@ -133,6 +135,10 @@ public class RestaurantUserSenzu implements Serializable {
     public String getContact() {
         return contact;
     }
+    
+    public String getDish() {
+        return dish;
+    }
 
     //public static ArrayList<Menu> getMenu() {
     //    return MockDatabase.getInstance().getMenu();
@@ -190,16 +196,11 @@ public class RestaurantUserSenzu implements Serializable {
     public void setContact(String contact) {
         this.contact = contact;
     }
+    
+    public void setDish(String dish) {
+        this.dish = dish;
+    }
 
-    // Not sure if the following two are correct, because there are a list 
-//    public static void setMenu(String menu) {
-//        this.menu = menu;
-//    }
-//    
-    //public static void setSpecialdiet(String specialdiet) {
-    //    this.specialdiet = specialdiet;
-    //}
-    //------------------------------------------------------------------added
     public void setMenu(ArrayList<String> menu) {
         this.menu = menu;
     }
