@@ -33,6 +33,7 @@ public class RestaurantSenzu implements Serializable {
     private String menu = "";
     private String specialdiet = "";
     private Integer ratings;
+    private ArrayList<Integer> ratinglist;
     
 
     public static Restaurant findByRestaurantName(String restaurantname) throws DoesNotExistException {
@@ -62,6 +63,10 @@ public class RestaurantSenzu implements Serializable {
     
     public void setRatings(Integer ratings)  {
         this.ratings=ratings;
+    }
+    
+    public void setRatinglist (ArrayList<Integer> ratinglist){
+        this.ratinglist=ratinglist;
     }
     
 
@@ -101,4 +106,7 @@ public class RestaurantSenzu implements Serializable {
         return ratings;
     }
     
+    public ArrayList<Integer> getRatinglist() {
+        return ratinglist;
+    }
 }
